@@ -1,0 +1,122 @@
+{% extends 'default.html' %}
+
+{% block conteudo %}
+<link rel="stylesheet" href="../static/styles/upload.css">
+
+<div class="container">
+    <h1>Transforme suas imagens em segundos</h1>
+    <p><strong>Envie. Aplique. Baixe.</strong></p>
+    <p>
+        Com nossa ferramenta online, você pode fazer upload de imagens e aplicar filtros com apenas alguns cliques.
+        Tudo direto no navegador, sem instalações e 100% gratuito.
+    </p>
+    <ul>
+        <li>Filtros criativos e profissionais</li>
+        <li>Processamento rápido</li>
+        <li>Compatível com JPG, PNG e mais</li>
+        <li>Privacidade garantida: suas imagens não ficam salvas</li>
+    </ul>
+    
+    <div class="img-example check-options">
+        <img src="../static/images/pato.jpeg" alt="patobase" class="img-thumbnail" id="previewImage">
+        <p>Imagem exemplo</p>
+    </div>
+    <span>
+        <p>com filtros aplicados</p>
+    </span>
+    <div class="container img-example-container"> 
+        <div class="img-example check-options">
+          <img src="../static/images/negativo.png" alt="patonegativo" class="img-thumbnail" id="previewImage"
+               title="Inverte as cores da imagem, criando um efeito semelhante ao de um negativo fotográfico.">
+          <p><strong>Filtro Negativo</strong></p>
+          <p class="filter-description">Inverte as cores da imagem, criando um efeito semelhante ao de um negativo fotográfico.</p>
+        </div>
+      
+        <span class="img-example check-options" >
+            <span id="ruidoExample">
+                <div class="img-example check-options">
+                    <img src="../static/images/ruido.png" alt="patocomruido" class="img-thumbnail" id="previewImage"
+                         title="Aplica ruído visual à imagem, simulando granulação ou interferência.">
+                    <p><strong>Com Ruído</strong></p>
+                  </div>
+                  <div class="img-example check-options">
+                    <img src="../static/images/semruido.png" alt="patosemruido" class="img-thumbnail" id="previewImage"
+                         title="Remove ruídos utilizando a mediana dos pixels vizinhos, suavizando a imagem.">
+                    <p><strong>Sem Ruído</strong></p>
+                  </div>
+            </span>
+          
+          <p><strong>Filtro da Mediana</strong></p>
+          <p class="filter-description">Reduz o ruído mantendo detalhes, usando a mediana dos pixels vizinhos.</p>
+        </span>
+      
+        <div class="img-example check-options">
+          <img src="../static/images/gausiano.png" alt="patogausiano" class="img-thumbnail" id="previewImage"
+               title="Aplica um desfoque suave com base na distribuição gaussiana.">
+          <p><strong>Filtro Gaussiano</strong></p>
+          <p class="filter-description">Aplica um desfoque suave com base na distribuição gaussiana para suavizar imperfeições.</p>
+        </div>
+      
+        <div class="img-example check-options">
+          <img src="../static/images/cinza.png" alt="patocinza" class="img-thumbnail" id="previewImage"
+               title="Converte a imagem para tons de cinza, removendo as cores.">
+          <p><strong>Filtro Escala de Cinza</strong></p>
+          <p class="filter-description">Converte a imagem para tons de cinza, destacando luz, sombra e estrutura.</p>
+        </div>
+      
+        <div class="img-example check-options">
+          <img src="../static/images/pretoebranco.png" alt="patopretoebranco" class="img-thumbnail" id="previewImage"
+               title="Transforma a imagem em preto e branco puro, criando contraste forte.">
+          <p><strong>Filtro Preto e Branco</strong></p>
+          <p class="filter-description">Transforma a imagem em preto e branco puro, criando um efeito marcante e contrastante.</p>
+        </div>
+      </div>
+      
+
+    <form method="POST" enctype="multipart/form-data" class="mb-3">
+        <!-- Campo de upload de imagens -->
+        <div class="mb-3">
+            <label for="imageUpload" class="form-label">Upload de Imagens</label>
+            <div id="dropzone" class="border border-primary rounded p-3 text-center">
+                Arraste suas imagens aqui ou clique para fazer upload
+                <input type="file" class="form-control d-none" id="imageUpload" name="images" accept=".png, .jpg, .jpeg" multiple>
+            </div>
+        </div>
+
+        <!-- Pré-visualização das imagens -->
+        <div id="preview" class="row g-3 mb-3"></div>
+
+        <!-- Lista de filtros com checkboxes -->
+        <div class="mb-3">
+            <label class="form-label">Selecione os filtros desejados:</label>
+            
+            
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter1" name="filters" value="filter1">
+                <label class="form-check-label" for="filter1">Filtro Negativo</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter2" name="filters" value="filter2">
+                <label class="form-check-label" for="filter2">Filtro da Mediana</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter3" name="filters" value="filter3">
+                <label class="form-check-label" for="filter3">Filtro Gaussiano</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter4" name="filters" value="filter4">
+                <label class="form-check-label" for="filter4">Filtro Escala de Cinza</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter5" name="filters" value="filter5">
+                <label class="form-check-label" for="filter5">Filtro Preto e Branco</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary submit">Aplicar filtros</button>
+    </form>
+</div>
+
+<script src="../static/scripts/upload.js"></script>
+{% endblock %}

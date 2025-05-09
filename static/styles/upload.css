@@ -1,0 +1,89 @@
+.card {
+    position: relative;
+}
+
+.btn-close {
+    display: none;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover .btn-close {
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.btn-close:hover {
+    transition: all 0.3s ease;
+    background-color: red;
+}
+
+.submit{
+    width: 150px;
+    height: 40px;
+}
+
+.img-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.check-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.img-example-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+.filter-description {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+  
+
+#ruidoExample{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+/* DISPOSITIVOS GRANDES */
+
+@media screen and (min-width: 992px) {
+    
+}
+
+/* DISPOSITIVOS PEQUENOS */
+
+@media screen and (max-width: 992px) {
+    .submit{
+        display: flex;
+        justify-self: center;
+        align-items: center;
+    }
+
+    .btn-close {
+        display: flex;
+    }
+}
