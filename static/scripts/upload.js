@@ -55,12 +55,10 @@ function displayPreview(files) {
         const reader = new FileReader();
         reader.onload = (e) => {
             const col = document.createElement('div');
-            col.classList.add('col-4', 'position-relative');
+            col.classList.add('card-thumbnail', 'align-items-center', 'd-flex', 'justify-content-center', 'position-relative', 'shadow');
             col.innerHTML = `
-                <div class="card">
-                    <img src="${e.target.result}" class="card-img-top" alt="Imagem">
-                    <button type="button" class="btn-close position-absolute top-0 end-0 m-2" aria-label="Excluir"></button>
-                </div>
+                <img src="${e.target.result}" class="img-fluid rounded" style="max-width: 100%; max-height: 100%" alt="Imagem">
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-2" aria-label="Excluir"></button>
             `;
             preview.appendChild(col);
 
