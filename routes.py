@@ -18,6 +18,10 @@ def allowed_file(filename):
 def home():
     return render_template('upload.html')
 
+@app.route('/sobre')
+def sobre():
+    return render_template('about.html')
+
 @app.route('/process', methods=['POST'])
 def process():
     files = request.files.getlist('images')
