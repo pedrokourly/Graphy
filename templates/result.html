@@ -1,0 +1,27 @@
+{% extends 'default.html' %}
+
+{% block conteudo %}
+<link rel="stylesheet" href="../static/styles/upload.css">
+
+<div class="container">
+    <h1>Resultado dos Filtros</h1>
+    <p>Veja abaixo as imagens processadas separadas por filtro selecionado.</p>
+    {% for filtro, imgs in images.items() %}
+        <h3 class="mt-4">{{ filter_names[filtro] }}</h3>
+        <div class="row">
+            {% for img in imgs %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='processed/' + img) }}" class="card-img-top" alt="Imagem filtrada">
+                    <div class="card-body">
+                        <p class="card-text">{{ img }}</p>
+                        <a href="{{ url_for('static', filename='processed/' + img) }}" download class="btn btn-success mt-2">Download</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <a href="/" class="btn btn-secondary mt-3">Voltar</a>
+</div>
+{% endblock %}
